@@ -6,12 +6,12 @@ module.exports = app => {
     scope: ['profile', 'email']
   }));
 
-  app.get('/auth/google/callback', 
+  app.get('/auth/google/callback',
     passport.authenticate('google')
   );
 
   //passport automatically attaches user property to request object and other function eg. req.logout
-  app.get('api/logout', (req, res) => {
+  app.get('/api/logout', (req, res) => {
     req.logout();
     res.send(req.user);
   });
